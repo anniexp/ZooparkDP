@@ -43,7 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Caretaker.cs" />
+    <Compile Include="Cleaner.cs" />
+    <Compile Include="Decorator.cs" />
     <Compile Include="GrizzlyBear.cs" />
+    <Compile Include="Worker.cs" />
+    <Compile Include="Medic.cs" />
     <Compile Include="RingTailedLemur.cs" />
     <Compile Include="Sloth.cs" />
     <Compile Include="AnimalFactory.cs" />

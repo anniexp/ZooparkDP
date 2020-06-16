@@ -9,7 +9,7 @@ namespace ZooparkDP
 {
     class Program
     {
-        static void ListAnimal(IAnimal animal)
+       public static void ListAnimal(IAnimal animal)
         {
            
             Console.WriteLine("\n---------------------------");
@@ -49,6 +49,41 @@ namespace ZooparkDP
             listOfAnimals.Add(grizzly);
             ListAnimal(grizzly);
 
+            // Setup Chain of Responsibility
+
+            Worker larry = new Cleaner();
+
+            Worker maria = new Caretaker();
+
+            Worker ivan = new Medic();
+
+            ivan.SetSuccessor(larry);
+            larry.SetSuccessor(maria);
+            // Generate and process request
+
+            //string[] requests = { "clean bear cage", "medical examine komodo dragon Julie, " , "feed animals" };
+
+            // Generate and process purchase requests
+            Console.WriteLine();
+            String p = "clean bear cage";
+            larry.ProcessRequest(p);
+
+            p = "medical examine komodo dragon Julie, ";
+            ivan.ProcessRequest(p);
+            p = "feed animals";
+            maria.ProcessRequest(p);
+            
+
+           
+
+            /*foreach (string request in requests)
+
+            {
+
+                ivan.ProcessRequest(request);
+*
+            }*/
+            //ConcreteDecorator d1 = new ConcreteDecorator();
             /*  foreach (object obj in listOfAnimals)
               {
                   Console.WriteLine(obj);
