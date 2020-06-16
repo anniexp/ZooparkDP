@@ -1,0 +1,7 @@
+C:\Users\Lenovo\source\repos\ZooparkDP\ZooparkDP\bin\Debug\ZooparkDP.exe.config
+C:\Users\Lenovo\source\repos\ZooparkDP\ZooparkDP\bin\Debug\ZooparkDP.exe
+C:\Users\Lenovo\source\repos\ZooparkDP\ZooparkDP\bin\Debug\ZooparkDP.pdb
+C:\Users\Lenovo\source\repos\ZooparkDP\ZooparkDP\obj\Debug\ZooparkDP.csprojAssemblyReference.cache
+C:\Users\Lenovo\source\repos\ZooparkDP\ZooparkDP\obj\Debug\ZooparkDP.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\source\repos\ZooparkDP\ZooparkDP\obj\Debug\ZooparkDP.exe
+C:\Users\Lenovo\source\repos\ZooparkDP\ZooparkDP\obj\Debug\ZooparkDP.pdb
