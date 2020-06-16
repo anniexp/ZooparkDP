@@ -44,9 +44,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Caretaker.cs" />
+    <Compile Include="Cashier.cs" />
     <Compile Include="Cleaner.cs" />
     <Compile Include="Decorator.cs" />
     <Compile Include="GrizzlyBear.cs" />
+    <Compile Include="Manager.cs" />
     <Compile Include="Worker.cs" />
     <Compile Include="Medic.cs" />
     <Compile Include="RingTailedLemur.cs" />

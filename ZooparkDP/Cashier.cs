@@ -1,12 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace ZooparkDP
 {
-    internal class Caretaker : Worker
+    class Cashier : Worker
     {
         public override void ProcessRequest(string p)
         {
-            if (p.Contains("feed") ||p.Contains("clean"))
+            if (p.Contains("cash") || p.Contains("ring") || p.Contains("money") || p.Contains("customer"))
 
             {
 
@@ -23,7 +27,7 @@ namespace ZooparkDP
                 Console.WriteLine("No personal available!");
 
             }
-            
+
         }
     }
-    }
+}

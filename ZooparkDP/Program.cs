@@ -28,6 +28,7 @@ namespace ZooparkDP
 
         static void Main(string[] args)
         {
+            Console.WriteLine("List of animals in zoopark: ");
             ArrayList listOfAnimals = new ArrayList();
             IAnimal animal = AnimalFactory.getAnimal("sloth");
             listOfAnimals.Add(animal);
@@ -49,6 +50,9 @@ namespace ZooparkDP
             listOfAnimals.Add(grizzly);
             ListAnimal(grizzly);
 
+            int numberOfAnimals = animal.Quantity() + grizzly.Quantity() + lemur.Quantity() + komodo.Quantity() + greatHornbill.Quantity();
+            Console.WriteLine();
+            Console.WriteLine("Current number of animals in zoo:{0} ", numberOfAnimals);
             // Setup Chain of Responsibility
 
             Worker larry = new Cleaner();
@@ -56,14 +60,18 @@ namespace ZooparkDP
             Worker maria = new Caretaker();
 
             Worker ivan = new Medic();
+            Worker dimitrii = new Manager();
+            Worker katya = new Cashier();
+
+            dimitrii.SetSuccessor(ivan);
 
             ivan.SetSuccessor(larry);
-            larry.SetSuccessor(maria);
-            // Generate and process request
+            larry.SetSuccessor(katya);
+            katya.SetSuccessor(maria);
+            Console.WriteLine();
 
-            //string[] requests = { "clean bear cage", "medical examine komodo dragon Julie, " , "feed animals" };
-
-            // Generate and process purchase requests
+            Console.WriteLine("List of current tasks to do: ");
+            // Generate and process requests
             Console.WriteLine();
             String p = "clean bear cage";
             larry.ProcessRequest(p);
@@ -72,7 +80,10 @@ namespace ZooparkDP
             ivan.ProcessRequest(p);
             p = "feed animals";
             maria.ProcessRequest(p);
-            
+            p = "ring people in , take their money and give them change and a ticket";
+            dimitrii.ProcessRequest(p);
+            p = "give answers to customer questions";
+            dimitrii.ProcessRequest(p);
 
            
 
