@@ -43,20 +43,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Caretaker.cs" />
-    <Compile Include="Cashier.cs" />
-    <Compile Include="Cleaner.cs" />
+    <Compile Include="ChainOfResponsibility\Caretaker.cs" />
+    <Compile Include="ChainOfResponsibility\Cashier.cs" />
+    <Compile Include="ChainOfResponsibility\Cleaner.cs" />
     <Compile Include="Decorator.cs" />
-    <Compile Include="GrizzlyBear.cs" />
-    <Compile Include="Manager.cs" />
-    <Compile Include="Worker.cs" />
-    <Compile Include="Medic.cs" />
-    <Compile Include="RingTailedLemur.cs" />
-    <Compile Include="Sloth.cs" />
-    <Compile Include="AnimalFactory.cs" />
-    <Compile Include="GreatHornbill.cs" />
-    <Compile Include="IAnimal.cs" />
-    <Compile Include="KomodoDragon.cs" />
+    <Compile Include="Factory\GrizzlyBear.cs" />
+    <Compile Include="ChainOfResponsibility\Manager.cs" />
+    <Compile Include="ChainOfResponsibility\Worker.cs" />
+    <Compile Include="ChainOfResponsibility\Medic.cs" />
+    <Compile Include="Factory\RingTailedLemur.cs" />
+    <Compile Include="Factory\Sloth.cs" />
+    <Compile Include="Factory\AnimalFactory.cs" />
+    <Compile Include="Factory\GreatHornbill.cs" />
+    <Compile Include="Factory\IAnimal.cs" />
+    <Compile Include="Factory\KomodoDragon.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
