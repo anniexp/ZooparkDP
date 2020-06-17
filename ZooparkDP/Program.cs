@@ -9,7 +9,15 @@ namespace ZooparkDP
 {
     class Program
     {
-       public static void ListAnimal(IAnimal animal)
+        static IAnimal animal;
+        static IAnimal grizzly;
+        static IAnimal lemur;
+        static IAnimal komodo;
+        static IAnimal greatHornbill;
+       
+
+
+        public static void ListAnimal(IAnimal animal)
         {
            
             Console.WriteLine("\n---------------------------");
@@ -25,34 +33,48 @@ namespace ZooparkDP
 
             Console.WriteLine(" Quantity : {0}", animal.Quantity());
         }
+        public static void CalculateProfit(double money)
+        {
+           
+            Double profit;
+            profit = money - (animal.Quantity() * animal.AnimalCareExpensesPerAnimalInDolars() +
+               grizzly.Quantity() * grizzly.AnimalCareExpensesPerAnimalInDolars() +
+               lemur.Quantity() * lemur.AnimalCareExpensesPerAnimalInDolars() +
+               komodo.Quantity() * komodo.AnimalCareExpensesPerAnimalInDolars() +
+               greatHornbill.Quantity() * greatHornbill.AnimalCareExpensesPerAnimalInDolars())
+               - Cashier.SalaryPerWeek() - Caretaker.SalaryPerWeek() - Manager.SalaryPerWeek() -
+               Medic.SalaryPerWeek() - Cleaner.SalaryPerWeek();
+            Console.WriteLine("Profit per week: {0}", profit);
+        }
 
         static void Main(string[] args)
         {
             Console.WriteLine("List of animals in zoopark: ");
             ArrayList listOfAnimals = new ArrayList();
-            IAnimal animal = AnimalFactory.getAnimal("sloth");
+            animal = AnimalFactory.GetAnimal("sloth");
             listOfAnimals.Add(animal);
             ListAnimal(animal);
-            IAnimal greatHornbill = AnimalFactory.getAnimal("greatHornbill");
+            greatHornbill = AnimalFactory.GetAnimal("greatHornbill");
             listOfAnimals.Add(greatHornbill);
 
             ListAnimal(greatHornbill);
 
-            IAnimal komodo = AnimalFactory.getAnimal("komodo");
+            komodo = AnimalFactory.GetAnimal("komodo");
             listOfAnimals.Add(komodo);
             ListAnimal(komodo);
 
-            IAnimal lemur = AnimalFactory.getAnimal("lemur");
+            lemur = AnimalFactory.GetAnimal("lemur");
             listOfAnimals.Add(lemur);
             ListAnimal(lemur);
 
-            IAnimal grizzly = AnimalFactory.getAnimal("grizzly");
+            grizzly = AnimalFactory.GetAnimal("grizzly");
             listOfAnimals.Add(grizzly);
             ListAnimal(grizzly);
 
             int numberOfAnimals = animal.Quantity() + grizzly.Quantity() + lemur.Quantity() + komodo.Quantity() + greatHornbill.Quantity();
             Console.WriteLine();
-            Console.WriteLine("Current number of animals in zoo:{0} ", numberOfAnimals);
+            Console.WriteLine("Current number of animals in zoo:{0} $ ", numberOfAnimals);
+
             // Setup Chain of Responsibility
 
             Worker larry = new Cleaner();
@@ -85,8 +107,30 @@ namespace ZooparkDP
             p = "give answers to customer questions";
             dimitrii.ProcessRequest(p);
 
-           
+            Console.WriteLine();
+            Console.WriteLine("Calculating profit per week: Please enter earned money from tickets for the week: ");
+            string money = "";
+          
+            while (money != null)
+            {
+                  money = Console.ReadLine();
+                bool moneyIsDigit = double.TryParse(money, out _ );
 
+                if (money != null && moneyIsDigit==true)
+                    {
+                        // double profit ;
+
+                        CalculateProfit(double.Parse(money));
+                        break;
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("Enter number!");
+                    continue;
+                    }
+                
+            }
             /*foreach (string request in requests)
 
             {

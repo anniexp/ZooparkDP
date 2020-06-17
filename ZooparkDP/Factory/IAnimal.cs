@@ -18,6 +18,8 @@ namespace ZooparkDP
             string Description();
 
             int Quantity();
+
+        double AnimalCareExpensesPerAnimalInDolars();
      
     }
 }

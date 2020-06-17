@@ -25,5 +25,9 @@ namespace ZooparkDP
                 successor.ProcessRequest(p);
             }
         }
+        public static double SalaryPerWeek()
+        {
+            return 900.00;
+        }
     }
 }

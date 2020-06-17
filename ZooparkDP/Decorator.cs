@@ -56,6 +56,11 @@ namespace ZooparkDP
         {
             return 2;
         }
+
+        public double AnimalCareExpensesPerAnimalInDolars()
+        {
+            throw new NotImplementedException();
+        }
     }
     //'ConcreteDecorator' class
    /* class Borrowable : Decorator

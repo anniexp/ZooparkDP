@@ -8,6 +8,11 @@ namespace ZooparkDP
 {
     class GrizzlyBear : IAnimal
     {
+        public double AnimalCareExpensesPerAnimalInDolars()
+        {
+            return 40.95;
+        }
+
         public string AnimalKind()
         {
             return "Grizzly bear";

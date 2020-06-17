@@ -8,6 +8,11 @@ namespace ZooparkDP
 {
     class RingTailedLemur : IAnimal
     {
+        public double AnimalCareExpensesPerAnimalInDolars()
+        {
+            return 95.9;
+        }
+
         public string AnimalKind()
         {
             return "Ring-tailed lemur";

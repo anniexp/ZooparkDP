@@ -15,7 +15,7 @@ namespace ZooparkDP
             return this.MakeProduct();
         }*/
         public AnimalFactory() { }
-        public static IAnimal getAnimal(string key)
+        public static IAnimal GetAnimal(string key)
         {
             switch (key)
             {

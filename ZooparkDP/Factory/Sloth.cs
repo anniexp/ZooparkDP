@@ -10,6 +10,11 @@ namespace ZooparkDP
 
     public class Sloth : IAnimal
     {
+        public double AnimalCareExpensesPerAnimalInDolars()
+        {
+            return 15.45;
+        }
+
         public string AnimalKind()
         {
             return "Sloth";
