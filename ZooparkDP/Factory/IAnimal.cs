@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace ZooparkDP
 {
+    //contains definition for a group of related functionalities, that all Animal objects must implement
     public interface IAnimal
     {
             string AnimalKind();
+
             string TypeOfAnimalByWhatTheyEat();
 
             string Region();

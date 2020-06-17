@@ -8,6 +8,7 @@ namespace ZooparkDP.Bridge
 {
    abstract class Type
     {
+        
         public ICage _ICage;
         public abstract void MakeType();
        

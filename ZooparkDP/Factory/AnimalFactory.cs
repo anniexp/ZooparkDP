@@ -9,12 +9,9 @@ namespace ZooparkDP
 
     public abstract class AnimalFactory 
     {
-        /*protected abstract Animal MakeProduct();
-        public Animals CreateProduct()
-        {
-            return this.MakeProduct();
-        }*/
+       
         public AnimalFactory() { }
+        //with given unique identificational key, the fabric creates objects with the propertiies of the given class
         public static IAnimal GetAnimal(string key)
         {
             switch (key)

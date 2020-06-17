@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ZooparkDP 
 {
+    /// <summary>
+    /// provides an implementation of the base interface
+    /// </summary>
     class GrizzlyBear : IAnimal
     {
         public double AnimalCareExpensesPerAnimalInDolars()

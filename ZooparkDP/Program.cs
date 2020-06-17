@@ -17,11 +17,12 @@ namespace ZooparkDP
         static IAnimal greatHornbill;
        
 
-
+        /// <summary>
+        /// Printing in console each implementation of the IAnimal
+        /// </summary>
+        /// <param name="animal"></param>
         public static void ListAnimal(IAnimal animal)
-        {
-           // SmallCage smallCage = new SmallCage();
-
+        {         
             Console.WriteLine("\n---------------------------");
             Console.WriteLine("Animal kind: {0}", animal.AnimalKind());
 
@@ -35,6 +36,7 @@ namespace ZooparkDP
 
             Console.WriteLine(" Quantity : {0}", animal.Quantity());
 
+            // asiigning type of cage (big/small) depending of type of animal(mammal, bird or reptile)
             if (animal.TypeOfAnimal() == "bird")
             {
 
@@ -60,6 +62,11 @@ namespace ZooparkDP
             }
             
         }
+        /// <summary>
+        /// calculating pure profit of the facility for the week
+        /// </summary>
+        /// <param name="money1">$ earned from tickets for adults/param>
+        /// <param name="money2">$ earned from tickets for children</param>
         public static void CalculateProfit(double money1, double money2)
         {
            
@@ -71,39 +78,42 @@ namespace ZooparkDP
                greatHornbill.Quantity() * greatHornbill.AnimalCareExpensesPerAnimalInDolars())
                - Cashier.SalaryPerWeek() - Caretaker.SalaryPerWeek() - Manager.SalaryPerWeek() -
                Medic.SalaryPerWeek() - Cleaner.SalaryPerWeek();
-            Console.WriteLine("Profit per week: {0}", profit);
+            Console.WriteLine("\n---------------------------");
+            Console.WriteLine("Profit per week: {0} $", profit);
+            Console.WriteLine("\n---------------------------");
         }
 
         static void Main(string[] args)
         {
             Console.WriteLine("List of animals in zoopark: ");
-            ArrayList listOfAnimals = new ArrayList();
+            
             animal = AnimalFactory.GetAnimal("sloth");
-            listOfAnimals.Add(animal);
+            
             ListAnimal(animal);
             greatHornbill = AnimalFactory.GetAnimal("greatHornbill");
-            listOfAnimals.Add(greatHornbill);
+           
 
             ListAnimal(greatHornbill);
 
             komodo = AnimalFactory.GetAnimal("komodo");
-            listOfAnimals.Add(komodo);
+            
             ListAnimal(komodo);
 
             lemur = AnimalFactory.GetAnimal("lemur");
-            listOfAnimals.Add(lemur);
+            
             ListAnimal(lemur);
 
             grizzly = AnimalFactory.GetAnimal("grizzly");
-            listOfAnimals.Add(grizzly);
+           
             ListAnimal(grizzly);
 
             int numberOfAnimals = animal.Quantity() + grizzly.Quantity() + lemur.Quantity() + komodo.Quantity() + greatHornbill.Quantity();
-            Console.WriteLine();
+            
+            Console.WriteLine("\n---------------------------");
             Console.WriteLine("Current number of animals in zoo:{0}  ", numberOfAnimals);
-
+            Console.WriteLine("\n---------------------------");
             // Setup Chain of Responsibility
-
+            //creating workers
             Worker larry = new Cleaner();
 
             Worker maria = new Caretaker();
@@ -112,6 +122,7 @@ namespace ZooparkDP
             Worker dimitrii = new Manager();
             Worker katya = new Cashier();
 
+            //assigning chain of responsibility
             dimitrii.SetSuccessor(ivan);
 
             ivan.SetSuccessor(larry);
@@ -135,24 +146,29 @@ namespace ZooparkDP
             dimitrii.ProcessRequest(p);
 
             Console.WriteLine();
-            // Console.WriteLine("Calculating profit per week: Please enter earned money from tickets for the week: ");
+            Console.WriteLine("\n---------------------------");
+             Console.WriteLine("Calculating profit per week: ");
             double ticketForAdult = 16.00;
             double ticketForChild = 7.50;
             Console.WriteLine(" Please enter number of sold tickets for adults for the week: ");
             Console.WriteLine(" Please enter number of  sold tickets for children for the week: ");
-
+            //checking id input is in the correct format
             string numOfTicketsForAd = "";
             string numOfTicketsForCh = "";
 
+            // cycle the loop untill input is in correct format, then callculate profit
             while (numOfTicketsForAd != null && numOfTicketsForCh!= null)
             {
                 numOfTicketsForAd = Console.ReadLine();
                 numOfTicketsForCh = Console.ReadLine();
+                //Converts the string representation of a number to its 32-bit signed integer equivalent.
+                //A return value indicates whether the operation succeeded.
                 bool moneyIsDigit = double.TryParse(numOfTicketsForAd, out _ );
                 bool money2isDigit = double.TryParse(numOfTicketsForCh, out _);
-
+                //validations
                 if (numOfTicketsForAd != null && numOfTicketsForCh != null && moneyIsDigit == true && money2isDigit == true && Double.Parse(numOfTicketsForAd) > 0 && Double.Parse(numOfTicketsForCh) > 0)
                     {
+                    //income from each type of tickets
                     double money1 = double.Parse(numOfTicketsForAd) * ticketForAdult;
                     double money2 = double.Parse(numOfTicketsForCh) * ticketForChild;
                     Console.WriteLine("{0} $ earned from tickets for adults and {1} $ earned from tickets for children",money1,money2);
@@ -162,16 +178,12 @@ namespace ZooparkDP
                     }
                     else
                     {
-                        Console.WriteLine("Enter positive sum of income!");
+                        Console.WriteLine("Enter number of sold tickets for the week by each type!");
                     continue;
                     }                
             }
             
-            //ConcreteDecorator d1 = new ConcreteDecorator();
-            /*  foreach (object obj in listOfAnimals)
-              {
-                  Console.WriteLine(obj);
-              }*/
+            
         }
     }
 }
