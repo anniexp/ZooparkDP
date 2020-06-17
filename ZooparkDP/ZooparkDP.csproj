@@ -43,10 +43,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bridge\BigCage.cs" />
+    <Compile Include="Bridge\Bird.cs" />
+    <Compile Include="Bridge\ICage.cs" />
+    <Compile Include="Bridge\Mammal.cs" />
+    <Compile Include="Bridge\Reptile.cs" />
+    <Compile Include="Bridge\SmallCage.cs" />
+    <Compile Include="Bridge\Type.cs" />
     <Compile Include="ChainOfResponsibility\Caretaker.cs" />
     <Compile Include="ChainOfResponsibility\Cashier.cs" />
     <Compile Include="ChainOfResponsibility\Cleaner.cs" />
-    <Compile Include="Decorator.cs" />
     <Compile Include="Factory\GrizzlyBear.cs" />
     <Compile Include="ChainOfResponsibility\Manager.cs" />
     <Compile Include="ChainOfResponsibility\Worker.cs" />
@@ -63,5 +69,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

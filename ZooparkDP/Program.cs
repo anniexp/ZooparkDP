@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ZooparkDP.Bridge;
 
 namespace ZooparkDP
 {
@@ -19,24 +20,50 @@ namespace ZooparkDP
 
         public static void ListAnimal(IAnimal animal)
         {
-           
+           // SmallCage smallCage = new SmallCage();
+
             Console.WriteLine("\n---------------------------");
             Console.WriteLine("Animal kind: {0}", animal.AnimalKind());
 
-            Console.WriteLine(" Type : {0}", animal.TypeOfAnimal());
+            Console.WriteLine(" Type of animal by biology : {0}", animal.TypeOfAnimal());
 
             Console.WriteLine(" Region : {0}", animal.Region());
 
-            Console.WriteLine(" Type: {0}", animal.TypeOfAnimalByWhatTheyEat());
+            Console.WriteLine(" Type of animal by what they eat: {0}", animal.TypeOfAnimalByWhatTheyEat());
 
             Console.WriteLine(" Description : {0}", animal.Description());
 
             Console.WriteLine(" Quantity : {0}", animal.Quantity());
+
+            if (animal.TypeOfAnimal() == "bird")
+            {
+
+                Bridge.Type type = new SmallCage();
+                type._ICage = new Bird();
+                type.MakeType();
+
+            }
+            else if (animal.TypeOfAnimal() == "reptile")
+            {
+                Bridge.Type type = new SmallCage();
+                type._ICage = new Reptile();
+                type.MakeType();
+
+            }
+            else if (animal.TypeOfAnimal() == "mammal")
+            {
+                Bridge.Type type = new BigCage();
+                type._ICage = new Mammal();
+                type.MakeType();
+
+
+            }
+            
         }
         public static void CalculateProfit(double money1, double money2)
         {
            
-            Double profit;
+            double profit;
             profit = money1 + money2 - (animal.Quantity() * animal.AnimalCareExpensesPerAnimalInDolars() +
                grizzly.Quantity() * grizzly.AnimalCareExpensesPerAnimalInDolars() +
                lemur.Quantity() * lemur.AnimalCareExpensesPerAnimalInDolars() +
@@ -73,7 +100,7 @@ namespace ZooparkDP
 
             int numberOfAnimals = animal.Quantity() + grizzly.Quantity() + lemur.Quantity() + komodo.Quantity() + greatHornbill.Quantity();
             Console.WriteLine();
-            Console.WriteLine("Current number of animals in zoo:{0} $ ", numberOfAnimals);
+            Console.WriteLine("Current number of animals in zoo:{0}  ", numberOfAnimals);
 
             // Setup Chain of Responsibility
 
@@ -95,7 +122,7 @@ namespace ZooparkDP
             Console.WriteLine("List of current tasks to do: ");
             // Generate and process requests
             Console.WriteLine();
-            String p = "clean bear cage";
+            string p = "clean bear cage";
             larry.ProcessRequest(p);
 
             p = "medical examine komodo dragon Julie, ";
@@ -111,8 +138,8 @@ namespace ZooparkDP
             // Console.WriteLine("Calculating profit per week: Please enter earned money from tickets for the week: ");
             double ticketForAdult = 16.00;
             double ticketForChild = 7.50;
-            Console.WriteLine(" Please enter number of sold tickets for adults: ");
-            Console.WriteLine(" Please enternumber of  sold tickets for children: ");
+            Console.WriteLine(" Please enter number of sold tickets for adults for the week: ");
+            Console.WriteLine(" Please enter number of  sold tickets for children for the week: ");
 
             string numOfTicketsForAd = "";
             string numOfTicketsForCh = "";
@@ -139,13 +166,7 @@ namespace ZooparkDP
                     continue;
                     }                
             }
-            /*foreach (string request in requests)
-
-            {
-
-                ivan.ProcessRequest(request);
-*
-            }*/
+            
             //ConcreteDecorator d1 = new ConcreteDecorator();
             /*  foreach (object obj in listOfAnimals)
               {
