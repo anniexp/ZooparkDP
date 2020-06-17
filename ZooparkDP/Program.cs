@@ -33,11 +33,11 @@ namespace ZooparkDP
 
             Console.WriteLine(" Quantity : {0}", animal.Quantity());
         }
-        public static void CalculateProfit(double money)
+        public static void CalculateProfit(double money1, double money2)
         {
            
             Double profit;
-            profit = money - (animal.Quantity() * animal.AnimalCareExpensesPerAnimalInDolars() +
+            profit = money1 + money2 - (animal.Quantity() * animal.AnimalCareExpensesPerAnimalInDolars() +
                grizzly.Quantity() * grizzly.AnimalCareExpensesPerAnimalInDolars() +
                lemur.Quantity() * lemur.AnimalCareExpensesPerAnimalInDolars() +
                komodo.Quantity() * komodo.AnimalCareExpensesPerAnimalInDolars() +
@@ -108,28 +108,36 @@ namespace ZooparkDP
             dimitrii.ProcessRequest(p);
 
             Console.WriteLine();
-            Console.WriteLine("Calculating profit per week: Please enter earned money from tickets for the week: ");
-            string money = "";
-          
-            while (money != null)
+            // Console.WriteLine("Calculating profit per week: Please enter earned money from tickets for the week: ");
+            double ticketForAdult = 16.00;
+            double ticketForChild = 7.50;
+            Console.WriteLine(" Please enter number of sold tickets for adults: ");
+            Console.WriteLine(" Please enternumber of  sold tickets for children: ");
+
+            string numOfTicketsForAd = "";
+            string numOfTicketsForCh = "";
+
+            while (numOfTicketsForAd != null && numOfTicketsForCh!= null)
             {
-                  money = Console.ReadLine();
-                bool moneyIsDigit = double.TryParse(money, out _ );
+                numOfTicketsForAd = Console.ReadLine();
+                numOfTicketsForCh = Console.ReadLine();
+                bool moneyIsDigit = double.TryParse(numOfTicketsForAd, out _ );
+                bool money2isDigit = double.TryParse(numOfTicketsForCh, out _);
 
-                if (money != null && moneyIsDigit==true)
+                if (numOfTicketsForAd != null && numOfTicketsForCh != null && moneyIsDigit == true && money2isDigit == true && Double.Parse(numOfTicketsForAd) > 0 && Double.Parse(numOfTicketsForCh) > 0)
                     {
-                        // double profit ;
+                    double money1 = double.Parse(numOfTicketsForAd) * ticketForAdult;
+                    double money2 = double.Parse(numOfTicketsForCh) * ticketForChild;
+                    Console.WriteLine("{0} $ earned from tickets for adults and {1} $ earned from tickets for children",money1,money2);
 
-                        CalculateProfit(double.Parse(money));
+                    CalculateProfit(money1, money2);
                         break;
-
                     }
                     else
                     {
-                        Console.WriteLine("Enter number!");
+                        Console.WriteLine("Enter positive sum of income!");
                     continue;
-                    }
-                
+                    }                
             }
             /*foreach (string request in requests)
 
