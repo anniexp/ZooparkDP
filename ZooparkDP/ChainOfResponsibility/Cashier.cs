@@ -19,7 +19,13 @@ namespace ZooparkDP
                   this.GetType().Name, p);
 
             }
+            else if (successor != null)
 
+            {
+
+                successor.ProcessRequest(p);
+
+            }
             else
 
             {
