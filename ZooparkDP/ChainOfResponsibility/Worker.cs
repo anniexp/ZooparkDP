@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 
 namespace ZooparkDP
 {
@@ -10,7 +11,8 @@ namespace ZooparkDP
             {
                 this.successor = successor;
             }
-            public abstract void ProcessRequest(string p);
+        public abstract void ProcessRequest(string p);
+       
       
     }
 }

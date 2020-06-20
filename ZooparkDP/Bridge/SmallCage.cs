@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace ZooparkDP.Bridge
 {
+    /// <summary>
+
+    /// The 'RefinedAbstraction' class
+
+    /// </summary>
     class SmallCage : Type
     {     
         //creates a type of cage, implementing ICage interface

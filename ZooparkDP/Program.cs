@@ -62,14 +62,16 @@ namespace ZooparkDP
             // asiigning type of cage (big/small) depending of type of animal(mammal, bird or reptile)
             if (animal.TypeOfAnimal() == "bird")
             {
-
+                //Abstraction obj = new RefinedAbstraction();
                 Bridge.Type type = new SmallCage();
+                // Set implementation and call
                 type._ICage = new Bird();
                 type.MakeType();
 
             }
             else if (animal.TypeOfAnimal() == "reptile")
             {
+
                 Bridge.Type type = new SmallCage();
                 type._ICage = new Reptile();
                 type.MakeType();
@@ -77,6 +79,7 @@ namespace ZooparkDP
             }
             else if (animal.TypeOfAnimal() == "mammal")
             {
+                // Change implemention and call
                 Bridge.Type type = new BigCage();
                 type._ICage = new Mammal();
                 type.MakeType();
@@ -87,31 +90,10 @@ namespace ZooparkDP
         }
 
         /// <summary>
-        ///helping method for calculating pure profit of the facility for the week by getting earned money
-        /// </summary>
-        /// <param name="money1">$ earned from tickets for adults/param>
-        /// <param name="money2">$ earned from tickets for children</param>
-        public static void CalculateProfit(double money1, double money2)
-        {
-
-            double profit;
-            profit = money1 + money2 - (animal.Quantity() * animal.AnimalCareExpensesPerAnimalInDolars() +
-               grizzly.Quantity() * grizzly.AnimalCareExpensesPerAnimalInDolars() +
-               lemur.Quantity() * lemur.AnimalCareExpensesPerAnimalInDolars() +
-               komodo.Quantity() * komodo.AnimalCareExpensesPerAnimalInDolars() +
-               greatHornbill.Quantity() * greatHornbill.AnimalCareExpensesPerAnimalInDolars())
-               - Cashier.SalaryPerWeek() - Caretaker.SalaryPerWeek() - Manager.SalaryPerWeek() -
-               Medic.SalaryPerWeek() - Cleaner.SalaryPerWeek();
-            Console.WriteLine("\n---------------------------");
-            Console.WriteLine("Profit per week: {0} $", profit);
-            Console.WriteLine("\n---------------------------");
-        }
-
-        /// <summary>
         /// Setup Chain of Responsibility
         /// </summary>
         public static void TasksAssigning()
-            {
+        {
             //creating workers
             Worker larry = new Cleaner();
             Worker maria = new Caretaker();
@@ -139,14 +121,14 @@ namespace ZooparkDP
             dimitrii.ProcessRequest(p);
 
             Console.WriteLine();
-}
+        }
 
         /// <summary>
         /// Input sold tickets for the week, checks if format is valid and if its valid, proceed to calculating profit of the zoo
         /// </summary>
         public static void InputNumOfSoldTickets(double ticketForAdult, double ticketForChild)
         {
-            
+
             Console.WriteLine(" Please enter number of sold tickets for adults for the week: ");
             Console.WriteLine(" Please enter number of  sold tickets for children for the week: ");
             //checking id input is in the correct format
@@ -182,9 +164,31 @@ namespace ZooparkDP
 
         }
 
+        /// <summary>
+        ///helping method for calculating pure profit of the facility for the week by getting earned money
+        /// </summary>
+        /// <param name="money1">$ earned from tickets for adults/param>
+        /// <param name="money2">$ earned from tickets for children</param>
+        public static void CalculateProfit(double money1, double money2)
+        {
+
+            double profit;
+            profit = money1 + money2 - (animal.Quantity() * animal.AnimalCareExpensesPerAnimalInDolars() +
+               grizzly.Quantity() * grizzly.AnimalCareExpensesPerAnimalInDolars() +
+               lemur.Quantity() * lemur.AnimalCareExpensesPerAnimalInDolars() +
+               komodo.Quantity() * komodo.AnimalCareExpensesPerAnimalInDolars() +
+               greatHornbill.Quantity() * greatHornbill.AnimalCareExpensesPerAnimalInDolars())
+               - Cashier.SalaryPerWeek() - Caretaker.SalaryPerWeek() - Manager.SalaryPerWeek() -
+               Medic.SalaryPerWeek() - Cleaner.SalaryPerWeek();
+            Console.WriteLine("\n---------------------------");
+            Console.WriteLine("Profit per week: {0} $", profit);
+            Console.WriteLine("\n---------------------------");
+        }
+
+      
         static void Main(string[] args)
         {
-            //generate animlas in zoopark
+            //generate animals in zoopark
             CreateAnimals();
             //calculating how many animals are in the zoopark
             int numberOfAnimals = animal.Quantity() + grizzly.Quantity() + lemur.Quantity() + komodo.Quantity() + greatHornbill.Quantity();

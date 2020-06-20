@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace ZooparkDP.Bridge
 {
+    /// <summary>
+
+    /// The 'ConcreteImplementor' class
+
+    /// </summary>
     class Bird : ICage
     {
         public void CageType(string cage)

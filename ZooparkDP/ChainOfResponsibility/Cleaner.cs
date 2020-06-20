@@ -26,10 +26,12 @@ namespace ZooparkDP
 
             }
             else
-            {
-                Console.WriteLine("YEEEEEEET");
-            }
 
+            {
+
+                Console.WriteLine("No personal available!");
+
+            }
         }
         public static double SalaryPerWeek()
         {

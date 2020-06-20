@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 
 namespace ZooparkDP.Bridge
 {
+
+    /// <summary>
+
+    /// The 'RefinedAbstraction' class
+
+    /// </summary>
     class BigCage : Type
     {
         public override void MakeType()

@@ -24,6 +24,13 @@ namespace ZooparkDP
             {
                 successor.ProcessRequest(p);
             }
+            else
+
+            {
+
+                Console.WriteLine("No personal available!");
+
+            }
         }
         public static double SalaryPerWeek()
         {
