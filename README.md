@@ -9,7 +9,7 @@
   The deciding if one's qualified to do a specific job is decided in each of the employees's class (each employee has its own class, which implements a Worker base class, where a succesor is being set) by again by a if/else statement on the princip of if a specific word/s is/are found in the approached task, it is assignes to the given class(employee), f.e. the cleaner looks for the word "clean" in each tasks he has read.
   
   Each employee is being paid every week. So are expences given for each animal(food, water, medication, etc.) These resources come from ticket sales(currwntly there are two types of tickests - for adults(16$) and for children (7.5$)). After all expences there should be left some profit or loses, which are being calculated once in the week by a calculating method, which gets all sold tickets (for adult and for child), multiplying them by the each's corrensponding price, which are all the incomed money, and from it are being substitued all expences(each employe'se salary, each animal from each kind's expences) and the result is the pure profit. 
- 
+
  
   
  
